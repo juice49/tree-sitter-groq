@@ -1,0 +1,51 @@
+================================================================================
+Pipeline A
+================================================================================
+
+* | global::order()
+
+--------------------------------------------------------------------------------
+
+(document
+  (pipeline_expression
+    base: (everything_expression)
+    scope: (func_call_expression
+      namespace: (identifier)
+      identifier: (identifier))))
+
+================================================================================
+Pipeline B
+================================================================================
+
+* | global::order() | global::order()
+
+--------------------------------------------------------------------------------
+
+(document
+  (pipeline_expression
+    base: (everything_expression)
+    scope: (func_call_expression
+      namespace: (identifier)
+      identifier: (identifier))
+    scope: (func_call_expression
+      namespace: (identifier)
+      identifier: (identifier))))
+
+================================================================================
+Pipeline C
+================================================================================
+
+*[0...10] | global::order()
+
+--------------------------------------------------------------------------------
+
+(document
+  (pipeline_expression
+    base: (slice_traversal_expression
+      base: (everything_expression)
+      range: (exclusive_range
+        left: (number)
+        right: (number)))
+    scope: (func_call_expression
+      namespace: (identifier)
+      identifier: (identifier))))

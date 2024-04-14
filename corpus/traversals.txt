@@ -1,0 +1,475 @@
+================================================================================
+Dot Attribute Access Traversal A
+================================================================================
+
+a.b.c.d
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (attribute_access_traversal_expression
+      base: (attribute_access_traversal_expression
+        base: (identifier)
+        scope: (identifier))
+      scope: (identifier))
+    scope: (identifier)))
+
+================================================================================
+Dot Attribute Access Traversal B
+================================================================================
+
+*.b.c.d
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (attribute_access_traversal_expression
+      base: (attribute_access_traversal_expression
+        base: (everything_expression)
+        scope: (identifier))
+      scope: (identifier))
+    scope: (identifier)))
+
+================================================================================
+Square Bracket Attribute Access Traversal A
+================================================================================
+
+a["b"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (identifier)
+    scope: (string
+      (string_content))))
+
+================================================================================
+Square Bracket Attribute Access Traversal B
+================================================================================
+
+*["b"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (everything_expression)
+    scope: (string
+      (string_content))))
+
+================================================================================
+Combined Dot and Square Bracket Attribute Access Traversal A
+================================================================================
+
+a.b["c"].d["e"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (attribute_access_traversal_expression
+      base: (attribute_access_traversal_expression
+        base: (attribute_access_traversal_expression
+          base: (identifier)
+          scope: (identifier))
+        scope: (string
+          (string_content)))
+      scope: (identifier))
+    scope: (string
+      (string_content))))
+
+================================================================================
+Combined Dot and Square Bracket Attribute Access Traversal B
+================================================================================
+
+*.b["c"].d["e"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (attribute_access_traversal_expression
+      base: (attribute_access_traversal_expression
+        base: (attribute_access_traversal_expression
+          base: (everything_expression)
+          scope: (identifier))
+        scope: (string
+          (string_content)))
+      scope: (identifier))
+    scope: (string
+      (string_content))))
+
+================================================================================
+Dot Attribute Access Traversal Object
+================================================================================
+
+{"a": "b"}.b
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (object
+      (objectEntry
+        key: (string
+          (string_content))
+        value: (string
+          (string_content))))
+    scope: (identifier)))
+
+================================================================================
+Square Bracket Attribute Access Traversal Object
+================================================================================
+
+{"a": "b"}["a"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (object
+      (objectEntry
+        key: (string
+          (string_content))
+        value: (string
+          (string_content))))
+    scope: (string
+      (string_content))))
+
+================================================================================
+Element Access Traversal Index A
+================================================================================
+
+a[0]
+
+--------------------------------------------------------------------------------
+
+(document
+  (element_access_traversal_expression
+    base: (identifier)
+    idx: (number)))
+
+================================================================================
+Element Access Traversal Index B
+================================================================================
+
+*[0]
+
+--------------------------------------------------------------------------------
+
+(document
+  (element_access_traversal_expression
+    base: (everything_expression)
+    idx: (number)))
+
+================================================================================
+Element Access Traversal Filter
+================================================================================
+
+a[field == "b"]
+
+--------------------------------------------------------------------------------
+
+(document
+  (element_access_traversal_expression
+    base: (identifier)
+    idx: (equality_expression
+      left: (identifier)
+      right: (string
+        (string_content)))))
+
+================================================================================
+Slice Traversal Inclusive Range A
+================================================================================
+
+a[0..1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Inclusive Range B
+================================================================================
+
+*[0..1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (everything_expression)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Inclusive Range With Whitespace A
+================================================================================
+
+a[0 ..1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Inclusive Range With Whitespace B
+================================================================================
+
+a[0.. 1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Inclusive Range With Whitespace C
+================================================================================
+
+a[0 .. 1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Inclusive Range With Whitespace D
+================================================================================
+
+*[0 .. 1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (everything_expression)
+    range: (inclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range A
+================================================================================
+
+a[0...1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range B
+================================================================================
+
+*[0...1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (everything_expression)
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range C
+================================================================================
+
+["a", "b", "c"][0...1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (array
+      (string
+        (string_content))
+      (string
+        (string_content))
+      (string
+        (string_content)))
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range With Whitespace A
+================================================================================
+
+a[0 ...1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range With Whitespace B
+================================================================================
+
+a[0... 1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Slice Traversal Exclusive Range With Whitespace C
+================================================================================
+
+a[0 ... 1]
+
+--------------------------------------------------------------------------------
+
+(document
+  (slice_traversal_expression
+    base: (identifier)
+    range: (exclusive_range
+      left: (number)
+      right: (number))))
+
+================================================================================
+Array Postfix Traversal A
+================================================================================
+
+a[]
+
+--------------------------------------------------------------------------------
+
+(document
+  (array_postfix_traversal_expression
+    base: (identifier)))
+
+================================================================================
+Array Postfix Traversal B
+================================================================================
+
+*[]
+
+--------------------------------------------------------------------------------
+
+(document
+  (array_postfix_traversal_expression
+    base: (everything_expression)))
+
+================================================================================
+Projection Traversal
+================================================================================
+
+*{
+  fieldName,
+  "alias": "value"
+}
+
+--------------------------------------------------------------------------------
+
+(document
+  (projection_traversal_expression
+    base: (everything_expression)
+    scope: (projection_entry
+      (identifier))
+    scope: (projection_entry
+      (objectEntry
+        key: (string
+          (string_content))
+        value: (string
+          (string_content))))))
+
+================================================================================
+Dereference Traversal
+================================================================================
+
+a->
+
+--------------------------------------------------------------------------------
+
+(document
+  (dereference_traversal_expression
+    base: (identifier)))
+
+================================================================================
+Dereference Traversal With Field Name
+================================================================================
+
+a->b
+
+--------------------------------------------------------------------------------
+
+(document
+  (attribute_access_traversal_expression
+    base: (dereference_traversal_expression
+      base: (identifier))
+    scope: (identifier)))
+
+================================================================================
+Dereference Traversal With Projection Traversal
+================================================================================
+
+a->{
+  fieldNameA,
+  fieldNameB,
+  "aliasString": "someString",
+  "aliasField": "someField"
+}
+
+--------------------------------------------------------------------------------
+
+(document
+  (projection_traversal_expression
+    base: (dereference_traversal_expression
+      base: (identifier))
+    scope: (projection_entry
+      (identifier))
+    scope: (projection_entry
+      (identifier))
+    scope: (projection_entry
+      (objectEntry
+        key: (string
+          (string_content))
+        value: (string
+          (string_content))))
+    scope: (projection_entry
+      (objectEntry
+        key: (string
+          (string_content))
+        value: (string
+          (string_content))))))

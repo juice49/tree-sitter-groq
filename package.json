@@ -1,0 +1,41 @@
+{
+  "name": "tree-sitter-groq",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prebuildify": "^6.0.0",
+    "prettier": "^3.2.5",
+    "tree-sitter-cli": "^0.22.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "tree-sitter generate",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "testfile": "tree-sitter parse test.groq",
+    "test": "tree-sitter test",
+    "highlight": "tree-sitter highlight test.groq"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.0.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "types": "bindings/node",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.groq",
+      "file-types": ["groq", "typescript", "javascript"],
+      "highlights": ["queries/highlights.scm"],
+      "injection-regex": "/* groq */"
+    }
+  ]
+}

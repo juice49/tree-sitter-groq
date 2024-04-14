@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tree-sitter-groq"
+description = "GROQ grammar for tree-sitter"
+version = "0.0.1"
+keywords = ["incremental", "parsing", "tree-sitter", "groq"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing :: Linguistic",
+  "Typing :: Typed"
+]
+requires-python = ">=3.8"
+license.text = "MIT"
+readme = "README.md"
+
+[project.urls]
+Homepage = "https://github.com/juice49/tree-sitter-groq"
+
+[project.optional-dependencies]
+core = ["tree-sitter~=0.21"]
+
+[tool.cibuildwheel]
+build = "cp38-*"
+build-frontend = "build"
