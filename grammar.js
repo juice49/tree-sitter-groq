@@ -204,9 +204,12 @@ module.exports = grammar({
         seq(field('left', $._expression), '%', field('right', $._expression)),
       ),
 
-    _unary_expression: $ => choice($.unary_plus_expression),
+    _unary_expression: $ =>
+      choice($.unary_plus_expression, $.unary_minus_expression),
     unary_plus_expression: $ =>
       prec.right(10, seq('+', field('right', $._expression))),
+    unary_minus_expression: $ =>
+      prec.right(10, seq('-', field('right', $._expression))),
 
     func_call_expression: $ =>
       seq(
