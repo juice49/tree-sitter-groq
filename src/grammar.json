@@ -252,7 +252,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "objectEntry"
+                  "name": "object_entry"
                 },
                 {
                   "type": "REPEAT",
@@ -265,7 +265,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "objectEntry"
+                        "name": "object_entry"
                       }
                     ]
                   }
@@ -295,7 +295,7 @@
         }
       ]
     },
-    "objectEntry": {
+    "object_entry": {
       "type": "SEQ",
       "members": [
         {
@@ -325,7 +325,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "objectEntry"
+          "name": "object_entry"
         },
         {
           "type": "SYMBOL",

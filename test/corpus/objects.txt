@@ -22,12 +22,12 @@ Object
 
 (document
   (object
-    (objectEntry
+    (object_entry
       (string
         (string_content))
       (string
         (string_content)))
-    (objectEntry
+    (object_entry
       (string
         (string_content))
       (number))))
@@ -47,16 +47,16 @@ Nested Object
 
 (document
   (object
-    (objectEntry
+    (object_entry
       (string
         (string_content))
       (object
-        (objectEntry
+        (object_entry
           (string
             (string_content))
           (string
             (string_content)))))
-    (objectEntry
+    (object_entry
       (string
         (string_content))
       (number))))

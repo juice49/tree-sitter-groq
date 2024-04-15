@@ -51,7 +51,7 @@ Query B
           right: (identifier
             (parameter)))))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (projection_traversal_expression
@@ -104,7 +104,7 @@ QueryC
     base: (array_postfix_traversal_expression
       base: (everything_expression))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (identifier)
         value: (binary_plus_expression
           left: (string

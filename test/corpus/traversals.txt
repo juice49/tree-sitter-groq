@@ -113,7 +113,7 @@ Dot Attribute Access Traversal Object
 (document
   (attribute_access_traversal_expression
     base: (object
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
@@ -131,7 +131,7 @@ Square Bracket Attribute Access Traversal Object
 (document
   (attribute_access_traversal_expression
     base: (object
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
@@ -408,7 +408,7 @@ Projection Traversal
     scope: (projection_entry
       (identifier))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
@@ -462,13 +462,13 @@ a->{
     scope: (projection_entry
       (identifier))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
           (string_content))))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string

@@ -64,12 +64,11 @@ module.exports = grammar({
     escape_sequence: _ => token.immediate(seq('\\', /(\"|\\|\/|b|f|n|r|t|u)/)),
     // TODO: Expression.
     array: $ => seq('[', commaSep($._value), ']'),
-    object: $ => seq('{', commaSep($.objectEntry), '}'),
-    // TODO: Casing
-    objectEntry: $ =>
+    object: $ => seq('{', commaSep($.object_entry), '}'),
+    object_entry: $ =>
       seq(field('key', $._expression), ':', field('value', $._expression)),
     projection_entry: $ =>
-      choice($.objectEntry, $.identifier, $.spread_expression),
+      choice($.object_entry, $.identifier, $.spread_expression),
     pair: $ =>
       prec.left(
         seq(field('key', $._expression), '=>', field('value', $._expression)),

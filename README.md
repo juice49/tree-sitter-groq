@@ -37,7 +37,7 @@ Query
           right: (identifier
             (parameter)))))
     scope: (projection_entry
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (projection_traversal_expression

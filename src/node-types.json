@@ -6634,14 +6634,14 @@
       "required": false,
       "types": [
         {
-          "type": "objectEntry",
+          "type": "object_entry",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "objectEntry",
+    "type": "object_entry",
     "named": true,
     "fields": {
       "key": {
@@ -7543,7 +7543,7 @@
           "named": true
         },
         {
-          "type": "objectEntry",
+          "type": "object_entry",
           "named": true
         },
         {

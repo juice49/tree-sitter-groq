@@ -44,7 +44,7 @@ global::coalesce(null, someField, "someString", 1, ["a"], {"someKey": "someValue
       (string
         (string_content)))
     arg: (object
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
@@ -70,7 +70,7 @@ coalesce(null, someField, "someString", 1, ["a"], {"someKey": "someValue"})
       (string
         (string_content)))
     arg: (object
-      (objectEntry
+      (object_entry
         key: (string
           (string_content))
         value: (string
