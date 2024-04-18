@@ -90,7 +90,7 @@ Query B
                   idx: (number))))))))))
 
 ================================================================================
-QueryC
+Query C
 ================================================================================
 
 *[] {
@@ -112,3 +112,33 @@ QueryC
           right: (attribute_access_traversal_expression
             base: (this_expression)
             scope: (identifier)))))))
+
+================================================================================
+Query D
+================================================================================
+
+*[_type == "jam"] {
+  _id,
+  date,
+  track->{
+    name,
+    album->{
+      name,
+      "appleMusicImageUrl": coalesce(
+        appleMusicImageUrl,
+        image.asset->url
+      ),
+      'color': image.asset->metadata.palette.dominant.background,
+    },
+    artists[]->{
+      name
+    },
+    'appleMusicUrl': dataByPlatform.appleMusic.url,
+    'spotifyUrl': dataByPlatform.spotify.url,
+    'youtubeUrl': dataByPlatform.youtube.url,
+  }
+} | order(date desc)
+
+--------------------------------------------------------------------------------
+
+(document)
