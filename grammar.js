@@ -111,6 +111,8 @@ module.exports = grammar({
         $.greater_than_or_equal_expression,
         $.in_expression,
         $.match_expression,
+        $.asc_expression,
+        $.desc_expression,
         $.logical_and_expression,
         $.logical_or_expression,
         $.binary_plus_expression,
@@ -164,6 +166,9 @@ module.exports = grammar({
           field('right', $._expression),
         ),
       ),
+    asc_expression: $ => prec.left(4, seq(field('left', $._expression), 'asc')),
+    desc_expression: $ =>
+      prec.left(4, seq(field('left', $._expression), 'desc')),
     logical_and_expression: $ =>
       prec.right(
         seq(field('left', $._expression), '&&', field('right', $._expression)),

@@ -531,6 +531,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "asc_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "desc_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "logical_and_expression"
         },
         {
@@ -791,6 +799,48 @@
               "type": "SYMBOL",
               "name": "_expression"
             }
+          }
+        ]
+      }
+    },
+    "asc_expression": {
+      "type": "PREC_LEFT",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "asc"
+          }
+        ]
+      }
+    },
+    "desc_expression": {
+      "type": "PREC_LEFT",
+      "value": 4,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "desc"
           }
         ]
       }
