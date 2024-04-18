@@ -26,7 +26,7 @@ module.exports = grammar({
     true: () => 'true',
     false: () => 'false',
     // tree-sitter-json
-    number: $ => {
+    number: () => {
       const decimal_digits = /\d+/
       return decimal_digits
       // TODO: This breaks ranges.
