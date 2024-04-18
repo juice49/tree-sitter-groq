@@ -296,6 +296,7 @@ module.exports = grammar({
             $.array_postfix_traversal_expression,
             $.slice_traversal_expression,
             $.element_access_traversal_expression,
+            $.projection_traversal_expression,
           ),
         ),
         field('scope', repeat1(seq('|', $.func_call_expression))),

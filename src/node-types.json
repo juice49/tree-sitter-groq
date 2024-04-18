@@ -8213,6 +8213,10 @@
             "named": true
           },
           {
+            "type": "projection_traversal_expression",
+            "named": true
+          },
+          {
             "type": "slice_traversal_expression",
             "named": true
           }

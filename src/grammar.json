@@ -1581,6 +1581,10 @@
               {
                 "type": "SYMBOL",
                 "name": "element_access_traversal_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "projection_traversal_expression"
               }
             ]
           }
