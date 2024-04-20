@@ -329,11 +329,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "spread_expression"
+          "name": "_expression"
         }
       ]
     },

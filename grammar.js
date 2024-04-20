@@ -68,7 +68,11 @@ module.exports = grammar({
     object_entry: $ =>
       seq(field('key', $._expression), ':', field('value', $._expression)),
     projection_entry: $ =>
-      choice($.object_entry, $.identifier, $.spread_expression),
+      choice(
+        $.object_entry,
+        // TODO: This is too permissive (identifier, spread_expression, projection_traversal_expression).
+        $._expression,
+      ),
     pair: $ =>
       prec.left(
         seq(field('key', $._expression), '=>', field('value', $._expression)),
