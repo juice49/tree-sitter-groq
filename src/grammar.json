@@ -364,54 +364,62 @@
       }
     },
     "inclusive_range": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "left",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ".."
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
+            "content": {
+              "type": "SYMBOL",
+              "name": "number"
+            }
           }
-        },
-        {
-          "type": "STRING",
-          "value": ".."
-        },
-        {
-          "type": "FIELD",
-          "name": "right",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
-          }
-        }
-      ]
+        ]
+      }
     },
     "exclusive_range": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "left",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "left",
+            "content": {
+              "type": "SYMBOL",
+              "name": "number"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "..."
+          },
+          {
+            "type": "FIELD",
+            "name": "right",
+            "content": {
+              "type": "SYMBOL",
+              "name": "number"
+            }
           }
-        },
-        {
-          "type": "STRING",
-          "value": "..."
-        },
-        {
-          "type": "FIELD",
-          "name": "right",
-          "content": {
-            "type": "SYMBOL",
-            "name": "number"
-          }
-        }
-      ]
+        ]
+      }
     },
     "_range": {
       "type": "CHOICE",

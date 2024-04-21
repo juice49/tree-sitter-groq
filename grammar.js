@@ -55,9 +55,9 @@ module.exports = grammar({
       ),
     // TODO: Should be [expression (dots) expression]
     inclusive_range: $ =>
-      seq(field('left', $.number), '..', field('right', $.number)),
+      prec(5, seq(field('left', $.number), '..', field('right', $.number))),
     exclusive_range: $ =>
-      seq(field('left', $.number), '...', field('right', $.number)),
+      prec(5, seq(field('left', $.number), '...', field('right', $.number))),
     _range: $ => choice($.inclusive_range, $.exclusive_range),
 
     _expression: $ =>
