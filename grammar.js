@@ -25,31 +25,7 @@ module.exports = grammar({
     null: () => 'null',
     true: () => 'true',
     false: () => 'false',
-    // tree-sitter-json
-    number: () => {
-      const decimal_digits = /\d+/
-      return decimal_digits
-      // TODO: This breaks ranges.
-      const signed_integer = seq(optional('-'), decimal_digits)
-      const exponent_part = seq(choice('e', 'E'), signed_integer)
-
-      const decimal_integer_literal = seq(
-        optional('-'),
-        choice('0', seq(/[1-9]/, optional(decimal_digits))),
-      )
-
-      const decimal_literal = choice(
-        seq(
-          decimal_integer_literal,
-          '.',
-          optional(decimal_digits),
-          optional(exponent_part),
-        ),
-        seq(decimal_integer_literal, optional(exponent_part)),
-      )
-
-      return token(decimal_literal)
-    },
+    number: () => /(?:0|[1-9]\d*)(?:\.\d+)?(?:e[+\-]?\d+)?/i,
     string: $ =>
       choice(
         seq('"', optional($.string_content), '"'),

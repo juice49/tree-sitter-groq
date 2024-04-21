@@ -83,7 +83,8 @@
     },
     "number": {
       "type": "PATTERN",
-      "value": "\\d+"
+      "value": "(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:e[+\\-]?\\d+)?",
+      "flags": "i"
     },
     "string": {
       "type": "CHOICE",
