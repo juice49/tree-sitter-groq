@@ -141,4 +141,95 @@ Query D
 
 --------------------------------------------------------------------------------
 
-(document)
+(document
+  (pipeline_expression
+    base: (projection_traversal_expression
+      base: (element_access_traversal_expression
+        base: (everything_expression)
+        idx: (equality_expression
+          left: (identifier)
+          right: (string
+            (string_content))))
+      scope: (projection_entry
+        (identifier))
+      scope: (projection_entry
+        (identifier))
+      scope: (projection_entry
+         (projection_traversal_expression
+         base: (dereference_traversal_expression
+            base: (identifier))
+          scope: (projection_entry
+            (identifier))
+          scope: (projection_entry
+            (projection_traversal_expression
+              base: (dereference_traversal_expression
+                base: (identifier))
+              scope: (projection_entry
+                (identifier))
+              scope: (projection_entry
+                (object_entry
+                  key: (string
+                    (string_content))
+                  value: (func_call_expression
+                    identifier: (identifier)
+                    arg: (identifier)
+                    arg: (attribute_access_traversal_expression
+                      base: (dereference_traversal_expression
+                        base: (attribute_access_traversal_expression
+                          base: (identifier)
+                          scope: (identifier)))
+                      scope: (identifier)))))
+              scope: (projection_entry
+                (object_entry
+                  key: (string
+                    (string_content))
+                  value: (attribute_access_traversal_expression
+                    base: (attribute_access_traversal_expression
+                      base: (attribute_access_traversal_expression
+                        base: (attribute_access_traversal_expression
+                          base: (dereference_traversal_expression
+                            base: (attribute_access_traversal_expression
+                              base: (identifier)
+                              scope: (identifier)))
+                          scope: (identifier))
+                        scope: (identifier))
+                      scope: (identifier))
+                    scope: (identifier))))))
+          scope: (projection_entry
+            (projection_traversal_expression
+              base: (dereference_traversal_expression
+                base: (array_postfix_traversal_expression
+                  base: (identifier)))
+              scope: (projection_entry
+                (identifier))))
+          scope: (projection_entry
+            (object_entry
+              key: (string
+                (string_content))
+              value: (attribute_access_traversal_expression
+                base: (attribute_access_traversal_expression
+                  base: (identifier)
+                  scope: (identifier))
+                scope: (identifier))))
+          scope: (projection_entry
+            (object_entry
+              key: (string
+                (string_content))
+              value: (attribute_access_traversal_expression
+                base: (attribute_access_traversal_expression
+                  base: (identifier)
+                  scope: (identifier))
+                scope: (identifier))))
+          scope: (projection_entry
+            (object_entry
+              key: (string
+                (string_content))
+              value: (attribute_access_traversal_expression
+                base: (attribute_access_traversal_expression
+                  base: (identifier)
+                  scope: (identifier))
+                scope: (identifier)))))))
+    scope: (func_call_expression
+      identifier: (identifier)
+      arg: (desc_expression
+        left: (identifier)))))
